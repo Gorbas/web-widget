@@ -14,7 +14,7 @@ export const defaultConfiguration: IConfiguration = {
     widgetOpenedEventData: '',
     mainColor: '#408591',
     headerTextColor: '#333',
-    bubbleBackground: '#408591',
+    bubbleBackground: 'transparent',
     bubbleAvatarUrl: '',
     desktopHeight: 450,
     desktopWidth: 370,

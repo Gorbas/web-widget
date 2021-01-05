@@ -206,3 +206,8 @@ div.loading-dots .dot-lg {
 .textarea  { 
 	display: none; 
 }
+
+.desktop-closed-message-avatar:hover {
+	top: 0px;
+	transition: 2s;
+}

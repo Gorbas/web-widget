@@ -97,16 +97,12 @@ export const desktopIntroMessageStyle = {
 };
 
 export const desktopClosedMessageAvatarStyle = {
-    display: 'flex',
     justifyContent: 'center',
     position: 'absolute',
     top: '38px',
     right: '20px',
-    height: '60px',
     width: '60px',
-    border: 0,
-    borderRadius: '50%',
-    boxShadow: '0px 0px 20px rgba(0, 0, 0, 0.2)'
+    border: 0
 };
 
 export const mobileClosedMessageAvatarStyle = {
@@ -123,6 +119,5 @@ export const mobileClosedMessageAvatarStyle = {
 
 export const closedChatAvatarImageStyle = {
     width: '100%',
-    height: 'auto',
-    borderRadius: '999px'
+    height: 'auto'
 };
