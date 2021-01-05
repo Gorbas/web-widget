@@ -4,8 +4,13 @@ import { IAttachment, IMessage } from './../typings';
 class BotMan {
 
 	userId: string;
+	userName: string;
 	chatServer: string;
 
+    setUserName(userName: string) {
+        this.userName = userName;
+    }
+	
     setUserId(userId: string) {
         this.userId = userId;
     }
@@ -19,6 +24,7 @@ class BotMan {
     	const postData: { [index: string] : string|Blob } = {
     		driver: 'web',
     		userId: this.userId,
+    		userName: this.userName,
     		message: text,
     		attachment: attachment as Blob,
     		interactive: interactive ? '1' : '0'
