@@ -15,6 +15,7 @@ export default class Chat extends Component<IChatProps, IChatState> {
 
         this.botman = botman;
         this.botman.setUserId(this.props.userId);
+        this.botman.setUserName(this.props.userName);
         this.botman.setChatServer(this.props.conf.chatServer);
         //this.state.messages = [];
         //this.state.replyType = ReplyType.Text;
@@ -212,6 +213,7 @@ export default class Chat extends Component<IChatProps, IChatState> {
 
 interface IChatProps {
     userId: string,
+	userName: string,
     conf: IConfiguration
 }
 

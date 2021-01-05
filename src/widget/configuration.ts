@@ -25,6 +25,7 @@ export const defaultConfiguration: IConfiguration = {
     aboutText: '⚡ Powered by Botman',
     chatId: '',
     userId: '',
+	userName: '',
     alwaysUseFloatingButton: false,
     useEcho: false,
     echoChannel: (userId: string) => '',

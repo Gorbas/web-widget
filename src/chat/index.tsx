@@ -27,6 +27,7 @@ function injectChat() {
     render(
         <Chat
             userId={conf.userId}
+			userName={conf.userName}
             conf={conf}
         />,
         root
