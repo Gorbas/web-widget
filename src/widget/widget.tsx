@@ -3,6 +3,7 @@ import {h, Component} from 'preact';
 import ChatFrame from './chat-frame';
 import ChatFloatingButton from './chat-floating-button';
 import ChatTitleMsg from './chat-title-msg';
+import MinimizeIcon from './minimize-icon';
 import ArrowIcon from './arrow-icon';
 import Api from './api';
 import {
@@ -79,8 +80,7 @@ export default class Widget extends Component<any, IWidgetState> {
         } else {
             wrapperStyle = mobileOpenWrapperStyle; // open mobile wrapper should have no border
         }
-
-
+		
         return (
 
             <div style={wrapperStyle}>
@@ -94,14 +94,24 @@ export default class Widget extends Component<any, IWidgetState> {
 
                     (isChatOpen || this.state.wasChatOpened) ?
                         (isChatOpen ?
-                            <div style={{background: conf.mainColor, ...desktopTitleStyle}} onClick={this.toggle}>
+                            <div style={{background: conf.mainColor, ...desktopTitleStyle}} 
+								 onClick={this.toggle}>
                                 <div style={{
                                     display: 'flex', alignItems: 'center', padding: '0px 30px 0px 0px',
                                     fontSize: '15px', fontWeight: 'normal', color: conf.headerTextColor
                                 }}>
                                     {conf.title}
                                 </div>
-                                <ArrowIcon isOpened={isChatOpen}/>
+								<div style={{
+                                    display: 'flex', alignItems: 'right'
+                                }}>
+									<div>
+	                                	<MinimizeIcon isOpened={isChatOpen} />
+									</div>
+									<div onClick={this.exit}>
+	                                	<ArrowIcon isOpened={isChatOpen} />
+									</div>
+								</div>
                             </div> : <ChatTitleMsg onClick={this.toggle} conf={conf}/>)
                         :
                         <ChatTitleMsg onClick={this.toggle} conf={conf}/>
@@ -142,6 +152,13 @@ export default class Widget extends Component<any, IWidgetState> {
             isChatOpen: true,
             wasChatOpened: true
         });
+    }
+
+    exit() {
+        window.botmanChatWidget.clearMessages();
+		if (typeof this.close == "function") {
+			this.close();
+		}
     }
 
     close() {

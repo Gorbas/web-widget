@@ -72,6 +72,9 @@ export default class Chat extends Component<IChatProps, IChatState> {
     }
 
     render({}, state: IChatState) {
+		if (!this.hasMessages()) {
+			this.whisper("/start");
+		}
         return (
             <div>
                 <div id="messageArea">
@@ -179,6 +182,19 @@ export default class Chat extends Component<IChatProps, IChatState> {
         }
         return uuid;
     }
+	
+	hasMessages = () => {
+		return this.state.messages.length > 0;
+	}
+
+	clearMessages = () => {
+		while(this.hasMessages()) {
+			this.state.messages.pop();
+		}
+	    this.setState({
+	        messages: []
+	    });
+	}
 
 	writeToMessages = (msg: IMessage) => {
         if (typeof msg.time === "undefined") {

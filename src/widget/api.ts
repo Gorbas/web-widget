@@ -40,6 +40,13 @@ export default class Api {
         }
     }
 
+    clearMessages() {
+        this.callChatWidget({
+            method: 'clearMessages',
+            params: []
+        })
+    }
+	
     writeToMessages(message: IMessage) {
         this.callChatWidget({
             method: 'writeToMessages',
