@@ -224,6 +224,15 @@ export default class Chat extends Component<IChatProps, IChatState> {
                 replyType: msg.additionalParameters.replyType
             });
         }
+		this.scrollToBottom();
+	};
+	
+	scrollToBottom = () => {
+		setTimeout(() => {
+			console.log("scrollToBottom...");
+			let messageArea = document.getElementById("messageArea");
+			messageArea.scrollIntoView(false);
+		}, 400);
 	};
 }
 
