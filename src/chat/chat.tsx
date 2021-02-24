@@ -30,7 +30,9 @@ export default class Chat extends Component<IChatProps, IChatState> {
                 type: "text",
                 from: "chatbot"
             });
-        }
+        } else {
+			this.scrollToBottom();
+		}
         // Add event listener for widget API
         window.addEventListener("message", (event: MessageEvent) => {
             try {
@@ -75,6 +77,8 @@ export default class Chat extends Component<IChatProps, IChatState> {
 		if (!this.hasMessages()) {
 			this.whisper("/start");
 		}
+		this.scrollToBottom();
+		
         return (
             <div>
                 <div id="messageArea">
@@ -229,7 +233,6 @@ export default class Chat extends Component<IChatProps, IChatState> {
 	
 	scrollToBottom = () => {
 		setTimeout(() => {
-			console.log("scrollToBottom...");
 			let messageArea = document.getElementById("messageArea");
 			messageArea.scrollIntoView(false);
 		}, 400);

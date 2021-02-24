@@ -144,6 +144,12 @@ export default class Widget extends Component<any, IWidgetState> {
     		stateData.wasChatOpened = true;
     	}
     	this.setState(stateData);
+		
+		if (this.state.isChatOpen) {
+			setTimeout(function(){
+				window.botmanChatWidget.scrollToBottom();
+			}, 400);
+		}
     };
 
     open() {
@@ -152,7 +158,9 @@ export default class Widget extends Component<any, IWidgetState> {
             isChatOpen: true,
             wasChatOpened: true
         });
-        window.botmanChatWidget.scrollToBottom();
+		setTimeout(function(){
+			window.botmanChatWidget.scrollToBottom();
+		}, 400);
     }
 
     exit() {
