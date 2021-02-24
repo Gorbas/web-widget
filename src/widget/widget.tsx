@@ -152,6 +152,7 @@ export default class Widget extends Component<any, IWidgetState> {
             isChatOpen: true,
             wasChatOpened: true
         });
+        window.botmanChatWidget.scrollToBottom();
     }
 
     exit() {

@@ -40,6 +40,13 @@ export default class Api {
         }
     }
 
+    scrollToBottom() {
+        this.callChatWidget({
+            method: 'scrollToBottom',
+            params: []
+        })
+    }
+
     clearMessages() {
         this.callChatWidget({
             method: 'clearMessages',
