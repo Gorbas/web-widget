@@ -10,7 +10,6 @@ export default class ChatFloatingButton extends Component<IChatFloatingButtonPro
                 <div
                     className="mobile-closed-message-avatar"
                     style={{
-                        background: conf.bubbleBackground,
                         ...mobileClosedMessageAvatarStyle
                     }}
                 >
